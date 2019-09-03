@@ -28,13 +28,6 @@ class Video(views.APIView):
 		try:
 			videos = Videos.objects.all().order_by('title')
 			videoserailizer = VideoSerializers(videos, many= True)
-			# video_list = []
-			# for video in videos:
-			# 	videodict = {}
-			# 	title = video.title
-			# 	videoserailizer = VideoSerializers(video)
-			# 	videodict[title] = videoserailizer.data
-			# 	video_list.append(videodict)
 			context['status'] = True
 			context['message'] = "Videos Found"
 			context['videos'] = videoserailizer.data
@@ -53,9 +46,6 @@ class Video(views.APIView):
 		for this you need to send title of the video , description and the video itself
 
 		"""
-		print(request.POST)
-		print(request.FILES)
-		print(request.data)
 		context = {}
 		max_upload_size = 5242880 
 		extension = ['mp4', 'flv', '3gp', 'avi', 'wmv', 'mov' , 'm3u8' ]
@@ -126,8 +116,6 @@ class Video(views.APIView):
 		else:
 			context['status'] = False
 			context['message'] = "Title and file is a required field"
-
-		# context['message'] = message
 		return Response(context)
 
 	def delete(self,request):
