@@ -30,7 +30,7 @@ psycopg2==2.7.3.2
 pycodestyle==2.4.0
 pycparser==2.18
 pycrypto==2.6.1
-PyJWT==1.6.4
+PyJWT==2.4.0
 python-jose==1.4.0
 python-magic==0.4.15
 pytz==2018.5
